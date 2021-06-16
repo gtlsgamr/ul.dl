@@ -22,7 +22,7 @@ function makeid(length) {
 
 
 app.get("/",(req, res) => {
-	res.send("ok!");
+	res.sendFile(__dirname+'/templates/'+'home.txt');
 })
 
 

@@ -1,0 +1,23 @@
+ul.dl
+================
+
+HTTP POST files here:
+    curl -F'file=@yourfile.png' http://uldl.hitarththummar.xyz
+
+Maximum file size: 512.0 MiB
+
+TERMS OF SERVICE
+----------------
+
+ul.dl is NOT a platform for:
+    * piracy
+    * pornography and gore
+    * extremist material of any kind
+    * malware / botnet C&C
+    * anything related to crypto currencies
+    * backups
+    * CI build artifacts
+    * doxxing, database dumps containing personal information
+
+Uploads found to be in violation of these rules will be removed,
+and the originating IP address blocked from further uploads.
