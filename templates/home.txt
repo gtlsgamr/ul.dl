@@ -2,7 +2,7 @@ ul.dl
 ================
 
 HTTP POST files here:
-    curl -F'file=@yourfile.png' http://uldl.hitarththummar.xyz
+    curl -F'file=@yourfile.png' yoursitedomain
 
 Maximum file size: 512.0 MiB
 
