@@ -1,10 +1,12 @@
-ul.dl
-================
+ ^ ^                                                
+(O,O)                                               
+(   ) ul.dl, a no-bullshit file hosting service.    
+-"-"------------------------------------------------
 
 HTTP POST files here:
-    curl -F'file=@yourfile.png' http://uldl.hitarththummar.xyz
+    curl -F'file=@yourfile.png' yourdomain
 
-Maximum file size: 512.0 MiB
+Maximum file size: 20.0 MiB
 
 TERMS OF SERVICE
 ----------------
@@ -21,3 +23,6 @@ ul.dl is NOT a platform for:
 
 Uploads found to be in violation of these rules will be removed,
 and the originating IP address blocked from further uploads.
+
+----------------------------------------------------
+Big props to 0x0.st for inspiring this, this project is much less featured than it but again, that was the objective.
