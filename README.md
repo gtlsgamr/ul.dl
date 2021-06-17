@@ -1,2 +1,28 @@
-# ul.dl
-This is a no-bullshit file hosting service, inspired by 0x0.st. 
+ ^ ^                                                
+(O,O)                                               
+(   ) ul.dl, a no-bullshit file hosting service.    
+-"-"------------------------------------------------
+
+HTTP POST files here:
+    curl -F'file=@yourfile.png' yourdomain
+
+Maximum file size: 20.0 MiB
+
+TERMS OF SERVICE
+\----------------
+
+ul.dl is NOT a platform for:
+    * piracy
+    * pornography and gore
+    * extremist material of any kind
+    * malware / botnet C&C
+    * anything related to crypto currencies
+    * backups
+    * CI build artifacts
+    * doxxing, database dumps containing personal information
+
+Uploads found to be in violation of these rules will be removed,
+and the originating IP address blocked from further uploads.
+
+\----------------------------------------------------
+Big props to 0x0.st for inspiring this, this project is much less featured than it but again, that was the objective.
