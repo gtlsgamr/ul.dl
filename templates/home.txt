@@ -4,7 +4,11 @@
 -"-"------------------------------------------------
 
 HTTP POST files here:
+<<<<<<< HEAD
     curl -F'file=@yourfile.png' yourdomain
+=======
+    curl -F'file=@yourfile.png' yoursitedomain
+>>>>>>> ebc31da33b220830e3907d6e98dc78022e616b90
 
 Maximum file size: 20.0 MiB
 
