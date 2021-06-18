@@ -60,7 +60,7 @@ app.get("/:id",(req, res) => {
 //upload functionality
 
 app.post("/",(req, res) => {
-	upload(req,res,function(err){
+ 	upload(req,res,function(err){
 		if (err instanceof multer.MulterError){
 			res.send(err.message + '\n');
 		}
