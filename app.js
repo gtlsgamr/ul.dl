@@ -37,7 +37,8 @@ app.post("/", (req, res) => {
 new formidable.IncomingForm().parse(req)
 	.on('progress', function(bytesReceived, bytesExpected) {
  	 if(bytesReceived > sizeLimitBytes ){
-   	 return false; //exit the program
+		 res.send("File size too large.");
+   	 return; //exit the program
   	}
 	})
     .on('fileBegin', (name, file) => {
