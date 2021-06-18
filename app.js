@@ -1,14 +1,23 @@
-const formidable = require('formidable');
+//requirements
 var express = require('express');
-const fs = require('fs');
-const path = require('path')
+var fs = require('fs');
+var path = require('path')
+var multer = require('multer');
+
+//app 
+
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('uploads'));
+
+//someconstants
+
 const port = 3000;
-const MYURL = 'ht.xyz'
 const sizeLimitBytes = 20000000;
+
+//function to generate random ids
+
 function makeid(length) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -20,39 +29,44 @@ function makeid(length) {
    return result;
 }
 
+//multer storage object to save file as random name
 
-app.get("/",(req, res) => {
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+	ext = file.originalname.split(".").pop();
+    cb(null, makeid(4) + '.' + ext);
+  }
+})
+
+//upload object for uploading files
+
+var upload = multer({dest: 'uploads/',storage:storage,limits:{fileSize:sizeLimitBytes}}).single('file');
+
+//GET request for homepage
+
+app.get("/",(res) => {
 	res.sendFile(__dirname+'/templates/'+'home.html');
 })
 
+//GET request for files that directly serves the files from public directory
 
 app.get("/:id",(req, res) => {
 	res.sendFile(__dirname + '/uploads/' + req.params.id);
 })
 
-app.post("/", (req, res) => {
+//upload functionality
 
-	
-
-new formidable.IncomingForm().parse(req)
-	.on('progress', function(bytesReceived, bytesExpected) {
- 	 if(bytesReceived > sizeLimitBytes ){
-		 res.send("File size too large.");
-   	 return; //exit the program
-  	}
-	})
-    .on('fileBegin', (name, file) => {
-		var ext = file.name.split(".").pop();
-		var finalname = makeid(4)+'.'+ext;
-		
-        file.path = __dirname + '/uploads/' + finalname
-		res.send(MYURL+"/"+finalname+"\n");
-
-    })
-    .on('file', (name,file) => {
-      console.log('Uploaded file', file)
-    })	
-
+app.post("/",(req, res) => {
+	upload(req,res,function(err){
+		if (err instanceof multer.MulterError){
+			res.send(err.message + '\n');
+		}
+	  fl = req.file;
+	  res.send(req.headers.host+'/'+fl.filename+'\n');
+	});
 });
 
 
