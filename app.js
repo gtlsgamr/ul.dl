@@ -13,7 +13,7 @@ app.use(express.static('uploads'));
 
 //someconstants
 
-const port = 3000;
+const port = 3121;
 const sizeLimitBytes = 20000000;
 
 //function to generate random ids
@@ -47,7 +47,7 @@ var upload = multer({dest: 'uploads/',storage:storage,limits:{fileSize:sizeLimit
 
 //GET request for homepage
 
-app.get("/",(res) => {
+app.get("/",(req,res) => {
 	res.sendFile(__dirname+'/templates/'+'home.html');
 })
 
