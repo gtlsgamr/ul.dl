@@ -10,7 +10,8 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('uploads'));
-
+var bodyParser = require('body-parser');
+app.use(bodyParser.raw(options));
 //someconstants
 
 const port = 3121;
