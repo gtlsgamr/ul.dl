@@ -73,6 +73,11 @@ app.get("/:id",(req, res) => {
 	}
 })
 
+app.get("/robots.txt", () => {
+	return ```User-agent: *
+Disallow: /
+	```
+})
 //upload functionality
 
 app.post("/",(req, res) => {
